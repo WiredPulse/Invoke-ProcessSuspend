@@ -3,5 +3,6 @@ Suspends and resumes processes based on a supplied process ID. The suspension is
 
 # Included Functions
 * Invoke-ProcessSuspend
+** pp
 * Invoke-ResumeProcess
 * Invoke-TimedProcessSuspend
