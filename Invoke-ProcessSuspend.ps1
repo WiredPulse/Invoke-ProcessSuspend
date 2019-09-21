@@ -1,21 +1,4 @@
-﻿# https://github.com/FuzzySecurity/PowerShell-Suite/blob/master/Detect-Debug.ps1
-
-
-# todos:
-# Easy
-# create better error logics
-# make better help messages
-
-# Mid-level
-# add input validation checks
-# - is ID an int?---DONE
-
-# HARD
-# - re-introduce the -Duration option & use ScheduledJob instead of sleep
-
-
-
-<#
+﻿<#
 
 .SYNOPSIS
     This script enables a person to suspend and resume processes by attaching and removing a debugger.
@@ -136,7 +119,7 @@ function Invoke-ResumeProcess {
         break
     }
 
-    Write-Host -ForegroundColor "Attempting to resume $procName (PID: $id)..."
+    Write-Host -ForegroundColor cyan "Attempting to resume $procName (PID: $id)..."
         
     $debug = whoami /priv | where-object{$_ -like "*SeDebugPrivilege*"}
          
@@ -146,7 +129,7 @@ function Invoke-ResumeProcess {
             Write-host -ForegroundColor red "ERROR: Unable to resume $procName (PID: $id)"
         } 
         else{
-            Write-Host -ForegroundColor Green "The $procName process (PID: $id) was successfully resumed!"
+            " "; Write-Host -ForegroundColor Green "The $procName process (PID: $id) was successfully resumed!"
         }
     }
 }
